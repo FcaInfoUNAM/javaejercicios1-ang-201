@@ -11,41 +11,47 @@ public class Sobrecarga {
         this.materia = materia;
         this.calificacion = calificacion;
     }
-    public String reprobar(){
-        if (this.calificacion>5)
+
+    // Método reprobar en Sobrecarga
+    public String reprobar() {
+        if (this.calificacion > 5)
             return "true";
         else
             return "false";
-            
     }
 
     /**
-     * Profesor
+     * Clase Profesor, hereda de Sobrecarga
      */
-    class Profesor extends Sobrecarga{
-        public Profesor(String nombre, String materia, int calificacion){
+    class Profesor extends Sobrecarga {
+        public Profesor(String nombre, String materia, int calificacion) {
             super(nombre, materia, calificacion);
         }
-        public String reprobar(){
-            if(this.calificacion>5)
-                return ">:) Sacaste "+this.calificacion+" en " + this.materia;
+
+        @Override
+        public String reprobar() {
+            if (this.calificacion > 5)
+                return ">:) Sacaste " + this.calificacion + " en " + this.materia;
             else
                 return ":(";
         }
     }
 
     /**
-     * Alumno
+     * Clase Alumno, hereda de Sobrecarga
      */
-    class Alumno extends Sobrecarga{
-        public Alumno(String nombre, String materia, int calificacion){
+    class Alumno extends Sobrecarga {
+        public Alumno(String nombre, String materia, int calificacion) {
             super(nombre, materia, calificacion);
         }
-        public String reprobar(){
 
+        @Override
+        public String reprobar() {
+            if (this.calificacion < 6)
+                return ":(";
+            else
+                return ":)";
         }
-        
     }
-
 }
 
